@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+# shellcheck shell=dash
+set -eu
+
+#MISE alias="b"
+
+#USAGE flag "--push" help="Push to registry" default="false"
+
+passthrough=""
+
+set +u
+if [ "$usage_push" = "true" ]; then
+	passthrough="$passthrough --push"
+fi
+set -u
+
+mise run build:searxng $passthrough
+mise run build:searxng-builder $passthrough
+mise run build:space $passthrough

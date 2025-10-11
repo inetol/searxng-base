@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# shellcheck shell=dash
+
+#MISE depends=["lint:shellcheck"]
